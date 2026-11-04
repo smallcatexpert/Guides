@@ -215,9 +215,9 @@ This Markdown page is the editable source of truth. No spreadsheet export or reg
 
 [^H19]: AUDIO: Transcode (TrueHD 7.1  =&gt; OPUS 7.1)<br>Plex Playback Info: Transcode Reason TrueHD audio is not supported by the device
 
-[^I19]: - Direct Play DCA 7.1)<br>Plex Playback Info: Direct Play (DTS-HD 7.1)
+[^I19]: \- Direct Play DCA 7.1)<br>Plex Playback Info: Direct Play (DTS-HD 7.1)
 
-[^K19]: - Transcode (TrueHD 7.1 =&gt; OPUS 7.1)<br>- Plex Playback Info: Transcode Reason TrueHD audio is not supported by the device
+[^K19]: \- Transcode (TrueHD 7.1 =&gt; OPUS 7.1)<br>- Plex Playback Info: Transcode Reason TrueHD audio is not supported by the device
 
 [^A20]: Test results provided by: sek<br>Test Results: <https://discord.com/channels/492590071455940612/1293673285527011388><br>Date of Test: October 2024<br><br>Suppose you want a box that can run premium Android applications and CoreELEC. In that case, the best overall device is the Homatics Box R 4k Plus with its support for Dolby Vision including FEL and AV1 with a certified Android TV box. However, CoreELEC will run slower than the Ugoos and may not be able to decode some older Blu-ray movies as it does not support the VC1 codec.
 
@@ -239,15 +239,15 @@ This Markdown page is the editable source of truth. No spreadsheet export or reg
 
 [^H22]: Transcode (TrueHD 7.1 =&gt; EAC3 7.1)
 
-[^I22]: - Transcode (DCA 7.1 =&gt; AAC 5.1)<br>- Plex LG Video Settings Force Direct Play Disabled else no audio
+[^I22]: \- Transcode (DCA 7.1 =&gt; AAC 5.1)<br>- Plex LG Video Settings Force Direct Play Disabled else no audio
 
-[^K22]: - Plex LG Video Settings Force Direct Play Enabled if disabled Transcodes (TrueHD 7.1 =&gt; EAC3 7.1)
+[^K22]: \- Plex LG Video Settings Force Direct Play Enabled if disabled Transcodes (TrueHD 7.1 =&gt; EAC3 7.1)
 
-[^L22]: - Transcodes (DCA 7.1 =&gt; AAC 5.1)<br>- Plex LG Video Settings Force Direct Play Disabled else no audio
+[^L22]: \- Transcodes (DCA 7.1 =&gt; AAC 5.1)<br>- Plex LG Video Settings Force Direct Play Disabled else no audio
 
-[^M22]: - Plex LG Video Settings Force Direct Play Enabled if disabled Transcodes to AAC Stereo
+[^M22]: \- Plex LG Video Settings Force Direct Play Enabled if disabled Transcodes to AAC Stereo
 
-[^O22]: - Transcodes (DCA 5.1 =&gt; AAC 5.1)<br>- Plex LG Video Settings Force Direct Play Disabled else no audio
+[^O22]: \- Transcodes (DCA 5.1 =&gt; AAC 5.1)<br>- Plex LG Video Settings Force Direct Play Disabled else no audio
 
 [^A23]: Test Result Provided by: BeyondBroke<br>Test Result: <https://discord.com/channels/492590071455940612/1231867264010289163>
 
