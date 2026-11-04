@@ -17,13 +17,13 @@ Do you see a missing Player/Product ? and are you able to provide the needed inf
 | ? | No Test Results |
 | [^A6] | Notes/Extra Info |
 
-A linked number identifies a cell note. A blank cell stays blank; `?` means no test results, not a negative result.
+Green `Y` means yes, red `N` means no, and gray `?` means no test results. Color is an additional cue; the letters retain their meanings. A linked number identifies a cell note, labeled with its player, product, and format. Blue format headings link to the HDR and Dolby Vision explanations in [Format notes](#format-notes). A blank cell stays blank; `?` means no test results, not a negative result.
 
 ## Source profiles
 
 | Source | Profile | Extra information |
 | --- | --- | --- |
-| WEBDL | Profile 5 or 8 | Where P5 doesn't have Fallback to HDR10[^I3] |
+| WEBDL | Profile 5 or 8 | [Where P5 doesn't have Fallback to HDR10](#profile-5-fallback) |
 | WEBDL Hybrid (DV HDR10/HDR10+) | Profile 8 | |
 | Encode | Profile 8 | |
 | Remux | Profile 7 | |
@@ -32,9 +32,9 @@ A linked number identifies a cell note. A blank cell stays blank; `?` means no t
 
 ## Tested players
 
-HDR Formats[^C10] (DV P5 through HDR10+). Audio Passthrough[^H10] (TrueHD ATMOS through DD/AC3).
+[HDR Formats](#hdr-formats) (DV P5 through HDR10+). [Audio Passthrough](#audio-passthrough) (TrueHD ATMOS through DD/AC3).
 
-| Player | Product | DV P5[^C11] | DV P7[^D11] | DV P8[^E11] | HDR10 | HDR10+[^G11] | TrueHD ATMOS | DTS X | DD+ ATMOS | TrueHD | DTS-HD MA | FLAC/PCM | DD+/E-AC3 | DTS | AAC | DD/AC3 |
+| Player | Product | [DV P5](#dv-profile-5) | [DV P7](#dv-profile-7) | [DV P8](#dv-profile-8) | HDR10 | [HDR10+](#hdr10-plus) | TrueHD ATMOS | DTS X | DD+ ATMOS | TrueHD | DTS-HD MA | FLAC/PCM | DD+/E-AC3 | DTS | AAC | DD/AC3 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | AFTKM (Amazon Fire TV Stick 4K (Gen 2))[^A12] | Plex for Android (TV) | Y | Y | Y | Y | Y[^G12] | Y | N[^I12] | Y | Y | N[^L12] | Y | Y | Y | Y | Y |
 | Apple TV (4K)[^A13] | Plex for Apple TV | Y | N[^D13] | N[^E13] | Y | N[^G13] | N[^H13] | N[^I13] | N[^J13] | N[^K13] | N[^L13] | Y | N[^N13] | N[^O13] | Y | N[^Q13] |
@@ -55,6 +55,38 @@ HDR Formats[^C10] (DV P5 through HDR10+). Audio Passthrough[^H10] (TrueHD ATMOS 
 | Ugoos AM6B+[^A28] | Kodi (PM4K) | Y | Y[^D28] | Y | Y | Y | Y | Y | Y | Y | Y | Y | Y | Y | Y | Y |
 | Zidoo/Z9X PRO[^A29] | plex2zidoo (PM4K) | Y | Y | Y | Y | Y | Y[^H29] | Y[^I29] | Y | Y[^K29] | Y[^L29] | Y | Y | Y | Y | Y |
 
+## Format notes
+
+These explanations come from the workbook’s header and profile notes. The format headings above link directly here.
+
+### Profile 5 fallback { #profile-5-fallback }
+
+Profile 5 does not have a HDR10 baselayer, so cannot fallback to HDR10
+
+### HDR Formats { #hdr-formats }
+
+We decided to go for the most common used HDR Formats.<br>This includes the common Dolby Vision profiles and HDR10/HDR10+
+
+### Audio Passthrough { #audio-passthrough }
+
+This allows for the best audio quality as the audio signal is not altered or compressed in any way before reaching the AV receiver or soundbar. This is especially important for high-quality audio formats such as Dolby TrueHD or DTS-HD Master Audio.<br><br>By using audio passthrough, you can ensure that you are getting the best audio experience possible when watching movies or listening to music through your home theater system. It allows you to take full advantage of the capabilities of your AVR/Soundbar and ensures that you are hearing the audio as it was intended to be heard by the content creators.<br><br>Overall, audio passthrough is the ideal way to send audio from your media server to your AV receiver or soundbar for the highest quality audio experience.
+
+### DV P5 { #dv-profile-5 }
+
+DV Profile 5.<br>This is what comes with WEB-DL Dolby Vision releases without HDR10 fallback.<br>(Incompatible devices will playback with blown out pinks and greens)
+
+### DV P7 { #dv-profile-7 }
+
+DV Profile 7<br>This is what comes with UHD Bluray Remuxes and UHD BluRay releases.<br>These files will play on an Nvidia Shield Pro (2019), but on most other players will revert to the HDR10 fallback.
+
+### DV P8 { #dv-profile-8 }
+
+DV Profile 8<br>This is what comes with (Hybrid) WEB-DL (HULU), Hybrid UHD Remux, and UHD BluRay releases (all of which have HDR10 fallback).<br>This works with several mainstream media players.
+
+### HDR10+ { #hdr10-plus }
+
+HDR10+ content backward compatible with non-HDR10+ TVs/Devices. HDR10+ metadata is ignored by devices that do not support the format and video is played back in HDR10.
+
 ## Template row
 
 The workbook includes this untested placeholder. It is retained separately from the tested devices.
@@ -67,226 +99,214 @@ The workbook includes this untested placeholder. It is retained separately from 
 
 Edit this page using the pencil icon or GitHub’s file editor. Each table line is one player/product combination, with values in the same order as the headings. Keep `Y`, `N`, `?`, and blank cells distinct. Copy a row to add a device, then update its name, product, and results.
 
-Keep qualifications next to their results using a footnote reference such as `N[^device-dv]` and a matching definition such as `[^device-dv]: Falls back to HDR10.` below the table. Existing footnote names refer to the original workbook cell for migration traceability; new notes can use descriptive names. Include test dates and evidence links where available, and keep contradictory or uncertain findings explicit. Preview the page before submitting a pull request.
+Colors are applied automatically from `Y`, `N`, and `?`; no color markup is needed when editing a row.
+
+Keep qualifications next to their results using a footnote reference such as `N[^device-dv]` and a matching definition such as `[^device-dv]: Falls back to HDR10.` below the table. Start each cell note with its player, product, and format so its context remains clear when read below the table. Format-wide explanations live in [Format notes](#format-notes); keep the heading links in sync if a format is added or renamed. Existing footnote names refer to the original workbook cell for migration traceability; new notes can use descriptive names. Include test dates and evidence links where available, and keep contradictory or uncertain findings explicit. Preview the page before submitting a pull request.
 
 This Markdown page is the editable source of truth. No spreadsheet export or regeneration is needed.
 
 <!-- Imported from Sheet1; workbook SHA-256: 51a5c35aca4f9b04c50356811aca03ce7241ad5b479b816b980e8b06a4ee215e. -->
 
-[^I3]: Profile 5 does not have a HDR10 baselayer, so cannot fallback to HDR10
-
 [^A6]: Notes/Extra Info
 
-[^C10]: We decided to go for the most common used HDR Formats.<br>This includes the common Dolby Vision profiles and HDR10/HDR10+
+[^A12]: **AFTKM (Amazon Fire TV Stick 4K (Gen 2)) / Plex for Android (TV):** Test Result Provided by: DoonGuy<br>Test Result: <https://discord.com/channels/492590071455940612/1242251198673846442>
 
-[^H10]: This allows for the best audio quality as the audio signal is not altered or compressed in any way before reaching the AV receiver or soundbar. This is especially important for high-quality audio formats such as Dolby TrueHD or DTS-HD Master Audio.<br><br>By using audio passthrough, you can ensure that you are getting the best audio experience possible when watching movies or listening to music through your home theater system. It allows you to take full advantage of the capabilities of your AVR/Soundbar and ensures that you are hearing the audio as it was intended to be heard by the content creators.<br><br>Overall, audio passthrough is the ideal way to send audio from your media server to your AV receiver or soundbar for the highest quality audio experience.
+[^G12]: **AFTKM (Amazon Fire TV Stick 4K (Gen 2)) / Plex for Android (TV) / HDR10+:** HDR10+ video files with a height NOT divisible by 16 will not decode correctly.<br><https://www.amazonforum.com/s/question/0D56Q0000CLUXxzSQH/hdr10-video-files-with-a-height-not-divisible-by-16-will-not-decode-correctly>
 
-[^C11]: DV Profile 5.<br>This is what comes with WEB-DL Dolby Vision releases without HDR10 fallback.<br>(Incompatible devices will playback with blown out pinks and greens)
+[^I12]: **AFTKM (Amazon Fire TV Stick 4K (Gen 2)) / Plex for Android (TV) / DTS X:** FIRE STICK ITSELF TRANSCODES TO DTS 5.1! I would consider this format unsupported!
 
-[^D11]: DV Profile 7<br>This is what comes with UHD Bluray Remuxes and UHD BluRay releases.<br>These files will play on an Nvidia Shield Pro (2019), but on most other players will revert to the HDR10 fallback.
+[^L12]: **AFTKM (Amazon Fire TV Stick 4K (Gen 2)) / Plex for Android (TV) / DTS-HD MA:** FIRE STICK ITSELF TRANSCODES TO DTS 5.1! I would consider this format unsupported!
 
-[^E11]: DV Profile 8<br>This is what comes with (Hybrid) WEB-DL (HULU), Hybrid UHD Remux, and UHD BluRay releases (all of which have HDR10 fallback).<br>This works with several mainstream media players.
+[^A13]: **Apple TV (4K) / Plex for Apple TV:** Test results provided by: MvB<br>Test Results: <https://discord.com/channels/492590071455940612/1227314280857342023><br>Date of Test: April 2024<br><br>other sources:<br>Infuse forum, and several other sources like reddit and plex forum
 
-[^G11]: HDR10+ content backward compatible with non-HDR10+ TVs/Devices. HDR10+ metadata is ignored by devices that do not support the format and video is played back in HDR10.
+[^D13]: **Apple TV (4K) / Plex for Apple TV / DV P7:** The Apple TV doesn't support Profile 7, according to several sources including the Infuse forum. They mention that it actually falls back to HDR10, but your TV will trigger Dolby Vision (DV). This is often referred to as fake DV.<br>Fake DV = Triggers DV on your devices but you're actually playing the HDR10 base layer.<br><br>However, one of our team members tested it and his setup triggered DV on his TV and his AVR. We can't say for sure if this is fake DV or real DV.
 
-[^A12]: Test Result Provided by: DoonGuy<br>Test Result: <https://discord.com/channels/492590071455940612/1242251198673846442>
+[^E13]: **Apple TV (4K) / Plex for Apple TV / DV P8:** The Apple TV doesn't support Profile 8, according to several sources including the Infuse forum. They mention that it actually falls back to HDR10, but your TV will trigger Dolby Vision (DV). This is often referred to as fake DV.<br><br>However, one of our team members tested it and his setup triggered DV on his TV and his AVR. We can't say for sure if this is fake DV or real DV.
 
-[^G12]: HDR10+ video files with a height NOT divisible by 16 will not decode correctly.<br><https://www.amazonforum.com/s/question/0D56Q0000CLUXxzSQH/hdr10-video-files-with-a-height-not-divisible-by-16-will-not-decode-correctly>
+[^G13]: **Apple TV (4K) / Plex for Apple TV / HDR10+:** Will fallback to HDR10
 
-[^I12]: FIRE STICK ITSELF TRANSCODES TO DTS 5.1! I would consider this format unsupported!
+[^H13]: **Apple TV (4K) / Plex for Apple TV / TrueHD ATMOS:** TrueHD is transcoded to Opus/FLAC (Atmos metadata is discarded)
 
-[^L12]: FIRE STICK ITSELF TRANSCODES TO DTS 5.1! I would consider this format unsupported!
+[^I13]: **Apple TV (4K) / Plex for Apple TV / DTS X:** Decodes DTS Core to LPCM
 
-[^A13]: Test results provided by: MvB<br>Test Results: <https://discord.com/channels/492590071455940612/1227314280857342023><br>Date of Test: April 2024<br><br>other sources:<br>Infuse forum, and several other sources like reddit and plex forum
+[^J13]: **Apple TV (4K) / Plex for Apple TV / DD+ ATMOS:** Decodes to PCM(Atmos metadata is discarded)
 
-[^D13]: The Apple TV doesn't support Profile 7, according to several sources including the Infuse forum. They mention that it actually falls back to HDR10, but your TV will trigger Dolby Vision (DV). This is often referred to as fake DV.<br>Fake DV = Triggers DV on your devices but you're actually playing the HDR10 base layer.<br><br>However, one of our team members tested it and his setup triggered DV on his TV and his AVR. We can't say for sure if this is fake DV or real DV.
+[^K13]: **Apple TV (4K) / Plex for Apple TV / TrueHD:** TrueHD is transcoded to Opus/FLAC (Atmos metadata is discarded)
 
-[^E13]: The Apple TV doesn't support Profile 8, according to several sources including the Infuse forum. They mention that it actually falls back to HDR10, but your TV will trigger Dolby Vision (DV). This is often referred to as fake DV.<br><br>However, one of our team members tested it and his setup triggered DV on his TV and his AVR. We can't say for sure if this is fake DV or real DV.
+[^L13]: **Apple TV (4K) / Plex for Apple TV / DTS-HD MA:** Decodes DTS Core to LPCM
 
-[^G13]: Will fallback to HDR10
+[^N13]: **Apple TV (4K) / Plex for Apple TV / DD+/E-AC3:** Decodes to  LPCM
 
-[^H13]: TrueHD is transcoded to Opus/FLAC (Atmos metadata is discarded)
+[^O13]: **Apple TV (4K) / Plex for Apple TV / DTS:** Decodes DTS Core to LPCM
 
-[^I13]: Decodes DTS Core to LPCM
+[^Q13]: **Apple TV (4K) / Plex for Apple TV / DD/AC3:** Decodes to PCM
 
-[^J13]: Decodes to PCM(Atmos metadata is discarded)
+[^A14]: **Apple TV (4K) / Infuse:** Test results provided by: MvB<br>Test Results: <https://discord.com/channels/492590071455940612/1227314280857342023><br>Date of Test: April 2024<br><br>other sources:<br>Infuse forum, and several other sources like reddit and plex forum
 
-[^K13]: TrueHD is transcoded to Opus/FLAC (Atmos metadata is discarded)
+[^D14]: **Apple TV (4K) / Infuse / DV P7:** The Apple TV doesn't support Profile 7, according to several sources including the Infuse forum. They mention that it actually falls back to HDR10
 
-[^L13]: Decodes DTS Core to LPCM
+[^G14]: **Apple TV (4K) / Infuse / HDR10+:** Will fallback to HDR10
 
-[^N13]: Decodes to  LPCM
+[^H14]: **Apple TV (4K) / Infuse / TrueHD ATMOS:** Audio is converted losslessly to LPCM, but spatial metadata (i.e. Atmos or DTS:X) is discarded. No audio fidelity loss compared to source audio.
 
-[^O13]: Decodes DTS Core to LPCM
+[^I14]: **Apple TV (4K) / Infuse / DTS X:** Audio is converted losslessly to LPCM, but spatial metadata (i.e. Atmos or DTS:X) is discarded. No audio fidelity loss compared to source audio.
 
-[^Q13]: Decodes to PCM
+[^K14]: **Apple TV (4K) / Infuse / TrueHD:** Audio is converted losslessly to LPCM, but spatial metadata (i.e. Atmos or DTS:X) is discarded. No audio fidelity loss compared to source audio.
 
-[^A14]: Test results provided by: MvB<br>Test Results: <https://discord.com/channels/492590071455940612/1227314280857342023><br>Date of Test: April 2024<br><br>other sources:<br>Infuse forum, and several other sources like reddit and plex forum
+[^L14]: **Apple TV (4K) / Infuse / DTS-HD MA:** Audio is converted losslessly to LPCM, but spatial metadata (i.e. Atmos or DTS:X) is discarded. No audio fidelity loss compared to source audio.
 
-[^D14]: The Apple TV doesn't support Profile 7, according to several sources including the Infuse forum. They mention that it actually falls back to HDR10
+[^O14]: **Apple TV (4K) / Infuse / DTS:** Decoded to LPCM
 
-[^G14]: Will fallback to HDR10
+[^Q14]: **Apple TV (4K) / Infuse / DD/AC3:** Decoded to LPCM
 
-[^H14]: Audio is converted losslessly to LPCM, but spatial metadata (i.e. Atmos or DTS:X) is discarded. No audio fidelity loss compared to source audio.
+[^D15]: **Apple TV (4K) 2nd Gen / Plex for Apple TV / DV P7:** The Apple TV doesn't support Profile 7, according to several sources including the Infuse forum. They mention that it actually falls back to HDR10, but your TV will trigger Dolby Vision (DV). This is often referred to as fake DV.<br>Fake DV = Triggers DV on your devices but you're actually playing the HDR10 base layer.<br><br>However, one of our team members tested it and his setup triggered DV on his TV and his AVR. We can't say for sure if this is fake DV or real DV.
 
-[^I14]: Audio is converted losslessly to LPCM, but spatial metadata (i.e. Atmos or DTS:X) is discarded. No audio fidelity loss compared to source audio.
+[^E15]: **Apple TV (4K) 2nd Gen / Plex for Apple TV / DV P8:** The Apple TV doesn't support Profile 8, according to several sources including the Infuse forum. They mention that it actually falls back to HDR10, but your TV will trigger Dolby Vision (DV). This is often referred to as fake DV.<br><br>However, one of our team members tested it and his setup triggered DV on his TV and his AVR. We can't say for sure if this is fake DV or real DV.
 
-[^K14]: Audio is converted losslessly to LPCM, but spatial metadata (i.e. Atmos or DTS:X) is discarded. No audio fidelity loss compared to source audio.
+[^G15]: **Apple TV (4K) 2nd Gen / Plex for Apple TV / HDR10+:** Will fallback to HDR10
 
-[^L14]: Audio is converted losslessly to LPCM, but spatial metadata (i.e. Atmos or DTS:X) is discarded. No audio fidelity loss compared to source audio.
+[^H15]: **Apple TV (4K) 2nd Gen / Plex for Apple TV / TrueHD ATMOS:** TrueHD is transcoded to Opus/FLAC (Atmos metadata is discarded)
 
-[^O14]: Decoded to LPCM
+[^I15]: **Apple TV (4K) 2nd Gen / Plex for Apple TV / DTS X:** Decodes DTS Core to LPCM
 
-[^Q14]: Decoded to LPCM
+[^J15]: **Apple TV (4K) 2nd Gen / Plex for Apple TV / DD+ ATMOS:** Decodes to PCM(Atmos metadata is discarded)
 
-[^D15]: The Apple TV doesn't support Profile 7, according to several sources including the Infuse forum. They mention that it actually falls back to HDR10, but your TV will trigger Dolby Vision (DV). This is often referred to as fake DV.<br>Fake DV = Triggers DV on your devices but you're actually playing the HDR10 base layer.<br><br>However, one of our team members tested it and his setup triggered DV on his TV and his AVR. We can't say for sure if this is fake DV or real DV.
+[^K15]: **Apple TV (4K) 2nd Gen / Plex for Apple TV / TrueHD:** TrueHD is transcoded to Opus/FLAC (Atmos metadata is discarded)
 
-[^E15]: The Apple TV doesn't support Profile 8, according to several sources including the Infuse forum. They mention that it actually falls back to HDR10, but your TV will trigger Dolby Vision (DV). This is often referred to as fake DV.<br><br>However, one of our team members tested it and his setup triggered DV on his TV and his AVR. We can't say for sure if this is fake DV or real DV.
+[^L15]: **Apple TV (4K) 2nd Gen / Plex for Apple TV / DTS-HD MA:** Decodes DTS Core to LPCM
 
-[^G15]: Will fallback to HDR10
+[^O15]: **Apple TV (4K) 2nd Gen / Plex for Apple TV / DTS:** Decodes DTS Core to LPCM
 
-[^H15]: TrueHD is transcoded to Opus/FLAC (Atmos metadata is discarded)
+[^Q15]: **Apple TV (4K) 2nd Gen / Plex for Apple TV / DD/AC3:** Decodes to PCM
 
-[^I15]: Decodes DTS Core to LPCM
+[^D16]: **Apple TV (4K) 2nd Gen / Infuse / DV P7:** The Apple TV doesn't support Profile 7, according to several sources including the Infuse forum. They mention that it actually falls back to HDR10
 
-[^J15]: Decodes to PCM(Atmos metadata is discarded)
+[^G16]: **Apple TV (4K) 2nd Gen / Infuse / HDR10+:** Will fallback to HDR10
 
-[^K15]: TrueHD is transcoded to Opus/FLAC (Atmos metadata is discarded)
+[^H16]: **Apple TV (4K) 2nd Gen / Infuse / TrueHD ATMOS:** Audio is converted losslessly to LPCM, but spatial metadata (i.e. Atmos or DTS:X) is discarded. No audio fidelity loss compared to source audio.
 
-[^L15]: Decodes DTS Core to LPCM
+[^I16]: **Apple TV (4K) 2nd Gen / Infuse / DTS X:** Audio is converted losslessly to LPCM, but spatial metadata (i.e. Atmos or DTS:X) is discarded. No audio fidelity loss compared to source audio.
 
-[^O15]: Decodes DTS Core to LPCM
+[^K16]: **Apple TV (4K) 2nd Gen / Infuse / TrueHD:** Audio is converted losslessly to LPCM, but spatial metadata (i.e. Atmos or DTS:X) is discarded. No audio fidelity loss compared to source audio.
 
-[^Q15]: Decodes to PCM
+[^L16]: **Apple TV (4K) 2nd Gen / Infuse / DTS-HD MA:** Audio is converted losslessly to LPCM, but spatial metadata (i.e. Atmos or DTS:X) is discarded. No audio fidelity loss compared to source audio.
 
-[^D16]: The Apple TV doesn't support Profile 7, according to several sources including the Infuse forum. They mention that it actually falls back to HDR10
+[^O16]: **Apple TV (4K) 2nd Gen / Infuse / DTS:** Decoded to LPCM
 
-[^G16]: Will fallback to HDR10
+[^Q16]: **Apple TV (4K) 2nd Gen / Infuse / DD/AC3:** Decoded to LPCM
 
-[^H16]: Audio is converted losslessly to LPCM, but spatial metadata (i.e. Atmos or DTS:X) is discarded. No audio fidelity loss compared to source audio.
+[^D17]: **Apple TV (4K) 3rd Gen / Plex for Apple TV / DV P7:** The Apple TV doesn't support Profile 7, according to several sources including the Infuse forum. They mention that it actually falls back to HDR10, but your TV will trigger Dolby Vision (DV). This is often referred to as fake DV.<br>Fake DV = Triggers DV on your devices but you're actually playing the HDR10 base layer.<br><br>However, one of our team members tested it and his setup triggered DV on his TV and his AVR. We can't say for sure if this is fake DV or real DV.
 
-[^I16]: Audio is converted losslessly to LPCM, but spatial metadata (i.e. Atmos or DTS:X) is discarded. No audio fidelity loss compared to source audio.
+[^E17]: **Apple TV (4K) 3rd Gen / Plex for Apple TV / DV P8:** The Apple TV doesn't support Profile 8, according to several sources including the Infuse forum. They mention that it actually falls back to HDR10, but your TV will trigger Dolby Vision (DV). This is often referred to as fake DV.<br><br>However, one of our team members tested it and his setup triggered DV on his TV and his AVR. We can't say for sure if this is fake DV or real DV.
 
-[^K16]: Audio is converted losslessly to LPCM, but spatial metadata (i.e. Atmos or DTS:X) is discarded. No audio fidelity loss compared to source audio.
+[^H17]: **Apple TV (4K) 3rd Gen / Plex for Apple TV / TrueHD ATMOS:** TrueHD is transcoded to Opus/FLAC (Atmos metadata is discarded)
 
-[^L16]: Audio is converted losslessly to LPCM, but spatial metadata (i.e. Atmos or DTS:X) is discarded. No audio fidelity loss compared to source audio.
+[^I17]: **Apple TV (4K) 3rd Gen / Plex for Apple TV / DTS X:** Decodes DTS Core to LPCM
 
-[^O16]: Decoded to LPCM
+[^J17]: **Apple TV (4K) 3rd Gen / Plex for Apple TV / DD+ ATMOS:** Decodes to PCM(Atmos metadata is discarded)
 
-[^Q16]: Decoded to LPCM
+[^K17]: **Apple TV (4K) 3rd Gen / Plex for Apple TV / TrueHD:** TrueHD is transcoded to Opus/FLAC (Atmos metadata is discarded)
 
-[^D17]: The Apple TV doesn't support Profile 7, according to several sources including the Infuse forum. They mention that it actually falls back to HDR10, but your TV will trigger Dolby Vision (DV). This is often referred to as fake DV.<br>Fake DV = Triggers DV on your devices but you're actually playing the HDR10 base layer.<br><br>However, one of our team members tested it and his setup triggered DV on his TV and his AVR. We can't say for sure if this is fake DV or real DV.
+[^L17]: **Apple TV (4K) 3rd Gen / Plex for Apple TV / DTS-HD MA:** Decodes DTS Core to LPCM
 
-[^E17]: The Apple TV doesn't support Profile 8, according to several sources including the Infuse forum. They mention that it actually falls back to HDR10, but your TV will trigger Dolby Vision (DV). This is often referred to as fake DV.<br><br>However, one of our team members tested it and his setup triggered DV on his TV and his AVR. We can't say for sure if this is fake DV or real DV.
+[^O17]: **Apple TV (4K) 3rd Gen / Plex for Apple TV / DTS:** Decodes DTS Core to LPCM
 
-[^H17]: TrueHD is transcoded to Opus/FLAC (Atmos metadata is discarded)
+[^Q17]: **Apple TV (4K) 3rd Gen / Plex for Apple TV / DD/AC3:** Decodes to PCM
 
-[^I17]: Decodes DTS Core to LPCM
+[^D18]: **Apple TV (4K) 3rd Gen / Infuse / DV P7:** The Apple TV doesn't support Profile 7, according to several sources including the Infuse forum. They mention that it actually falls back to HDR10
 
-[^J17]: Decodes to PCM(Atmos metadata is discarded)
+[^H18]: **Apple TV (4K) 3rd Gen / Infuse / TrueHD ATMOS:** Audio is converted losslessly to LPCM, but spatial metadata (i.e. Atmos or DTS:X) is discarded. No audio fidelity loss compared to source audio.
 
-[^K17]: TrueHD is transcoded to Opus/FLAC (Atmos metadata is discarded)
+[^I18]: **Apple TV (4K) 3rd Gen / Infuse / DTS X:** Audio is converted losslessly to LPCM, but spatial metadata (i.e. Atmos or DTS:X) is discarded. No audio fidelity loss compared to source audio.
 
-[^L17]: Decodes DTS Core to LPCM
+[^K18]: **Apple TV (4K) 3rd Gen / Infuse / TrueHD:** Audio is converted losslessly to LPCM, but spatial metadata (i.e. Atmos or DTS:X) is discarded. No audio fidelity loss compared to source audio.
 
-[^O17]: Decodes DTS Core to LPCM
+[^L18]: **Apple TV (4K) 3rd Gen / Infuse / DTS-HD MA:** Audio is converted losslessly to LPCM, but spatial metadata (i.e. Atmos or DTS:X) is discarded. No audio fidelity loss compared to source audio.
 
-[^Q17]: Decodes to PCM
+[^O18]: **Apple TV (4K) 3rd Gen / Infuse / DTS:** Decoded to LPCM
 
-[^D18]: The Apple TV doesn't support Profile 7, according to several sources including the Infuse forum. They mention that it actually falls back to HDR10
+[^Q18]: **Apple TV (4K) 3rd Gen / Infuse / DD/AC3:** Decoded to LPCM
 
-[^H18]: Audio is converted losslessly to LPCM, but spatial metadata (i.e. Atmos or DTS:X) is discarded. No audio fidelity loss compared to source audio.
+[^A19]: **Chromecast Google TV / Plex for Android (TV):** Test Result Provided by: TRaSH<br>Test Result: <https://discord.com/channels/492590071455940612/1238791066786857041>
 
-[^I18]: Audio is converted losslessly to LPCM, but spatial metadata (i.e. Atmos or DTS:X) is discarded. No audio fidelity loss compared to source audio.
+[^D19]: **Chromecast Google TV / Plex for Android (TV) / DV P7:** Will fallback to HDR10
 
-[^K18]: Audio is converted losslessly to LPCM, but spatial metadata (i.e. Atmos or DTS:X) is discarded. No audio fidelity loss compared to source audio.
+[^G19]: **Chromecast Google TV / Plex for Android (TV) / HDR10+:** The TV Tested doesn't support HDR10+ so it will fallback to HDR10
 
-[^L18]: Audio is converted losslessly to LPCM, but spatial metadata (i.e. Atmos or DTS:X) is discarded. No audio fidelity loss compared to source audio.
+[^H19]: **Chromecast Google TV / Plex for Android (TV) / TrueHD ATMOS:** AUDIO: Transcode (TrueHD 7.1  =&gt; OPUS 7.1)<br>Plex Playback Info: Transcode Reason TrueHD audio is not supported by the device
 
-[^O18]: Decoded to LPCM
+[^I19]: **Chromecast Google TV / Plex for Android (TV) / DTS X:** \- Direct Play DCA 7.1)<br>Plex Playback Info: Direct Play (DTS-HD 7.1)
 
-[^Q18]: Decoded to LPCM
+[^K19]: **Chromecast Google TV / Plex for Android (TV) / TrueHD:** \- Transcode (TrueHD 7.1 =&gt; OPUS 7.1)<br>- Plex Playback Info: Transcode Reason TrueHD audio is not supported by the device
 
-[^A19]: Test Result Provided by: TRaSH<br>Test Result: <https://discord.com/channels/492590071455940612/1238791066786857041>
+[^A20]: **Homatics R 4k Plus / PlexKodiConnect:** Test results provided by: sek<br>Test Results: <https://discord.com/channels/492590071455940612/1293673285527011388><br>Date of Test: October 2024<br><br>Suppose you want a box that can run premium Android applications and CoreELEC. In that case, the best overall device is the Homatics Box R 4k Plus with its support for Dolby Vision including FEL and AV1 with a certified Android TV box. However, CoreELEC will run slower than the Ugoos and may not be able to decode some older Blu-ray movies as it does not support the VC1 codec.
 
-[^D19]: Will fallback to HDR10
+[^D20]: **Homatics R 4k Plus / PlexKodiConnect / DV P7:** Can play both FEL and MEL DV P7 as well Single Track and Dual Track
 
-[^G19]: The TV Tested doesn't support HDR10+ so it will fallback to HDR10
+[^A21]: **Kodi LG webOSTV / PlexKodiConnect:** Test Result Provided by: Jimbo<br>Test Result: <https://discord.com/channels/492590071455940612/1237182040319987784><br>TV: LG C3
 
-[^H19]: AUDIO: Transcode (TrueHD 7.1  =&gt; OPUS 7.1)<br>Plex Playback Info: Transcode Reason TrueHD audio is not supported by the device
+[^G21]: **Kodi LG webOSTV / PlexKodiConnect / HDR10+:** Will fallback to HDR10
 
-[^I19]: \- Direct Play DCA 7.1)<br>Plex Playback Info: Direct Play (DTS-HD 7.1)
+[^A22]: **LG OLED65CX6LA / Plex for LG:** Test Result Provided by: TRaSH<br>Test Result: <https://discord.com/channels/492590071455940612/1235664786717671545>
 
-[^K19]: \- Transcode (TrueHD 7.1 =&gt; OPUS 7.1)<br>- Plex Playback Info: Transcode Reason TrueHD audio is not supported by the device
+[^C22]: **LG OLED65CX6LA / Plex for LG / DV P5:** TV triggers DV, but picture is Purple and green
 
-[^A20]: Test results provided by: sek<br>Test Results: <https://discord.com/channels/492590071455940612/1293673285527011388><br>Date of Test: October 2024<br><br>Suppose you want a box that can run premium Android applications and CoreELEC. In that case, the best overall device is the Homatics Box R 4k Plus with its support for Dolby Vision including FEL and AV1 with a certified Android TV box. However, CoreELEC will run slower than the Ugoos and may not be able to decode some older Blu-ray movies as it does not support the VC1 codec.
+[^D22]: **LG OLED65CX6LA / Plex for LG / DV P7:** Will fallback to HDR10
 
-[^D20]: Can play both FEL and MEL DV P7 as well Single Track and Dual Track
+[^E22]: **LG OLED65CX6LA / Plex for LG / DV P8:** Will fallback to HDR10
 
-[^A21]: Test Result Provided by: Jimbo<br>Test Result: <https://discord.com/channels/492590071455940612/1237182040319987784><br>TV: LG C3
+[^G22]: **LG OLED65CX6LA / Plex for LG / HDR10+:** Will fallback to HDR10
 
-[^G21]: Will fallback to HDR10
+[^H22]: **LG OLED65CX6LA / Plex for LG / TrueHD ATMOS:** Transcode (TrueHD 7.1 =&gt; EAC3 7.1)
 
-[^A22]: Test Result Provided by: TRaSH<br>Test Result: <https://discord.com/channels/492590071455940612/1235664786717671545>
+[^I22]: **LG OLED65CX6LA / Plex for LG / DTS X:** \- Transcode (DCA 7.1 =&gt; AAC 5.1)<br>- Plex LG Video Settings Force Direct Play Disabled else no audio
 
-[^C22]: TV triggers DV, but picture is Purple and green
+[^K22]: **LG OLED65CX6LA / Plex for LG / TrueHD:** \- Plex LG Video Settings Force Direct Play Enabled if disabled Transcodes (TrueHD 7.1 =&gt; EAC3 7.1)
 
-[^D22]: Will fallback to HDR10
+[^L22]: **LG OLED65CX6LA / Plex for LG / DTS-HD MA:** \- Transcodes (DCA 7.1 =&gt; AAC 5.1)<br>- Plex LG Video Settings Force Direct Play Disabled else no audio
 
-[^E22]: Will fallback to HDR10
+[^M22]: **LG OLED65CX6LA / Plex for LG / FLAC/PCM:** \- Plex LG Video Settings Force Direct Play Enabled if disabled Transcodes to AAC Stereo
 
-[^G22]: Will fallback to HDR10
+[^O22]: **LG OLED65CX6LA / Plex for LG / DTS:** \- Transcodes (DCA 5.1 =&gt; AAC 5.1)<br>- Plex LG Video Settings Force Direct Play Disabled else no audio
 
-[^H22]: Transcode (TrueHD 7.1 =&gt; EAC3 7.1)
+[^A23]: **Roku Ultra 4640x / Plex for Roku:** Test Result Provided by: BeyondBroke<br>Test Result: <https://discord.com/channels/492590071455940612/1231867264010289163>
 
-[^I22]: \- Transcode (DCA 7.1 =&gt; AAC 5.1)<br>- Plex LG Video Settings Force Direct Play Disabled else no audio
+[^D23]: **Roku Ultra 4640x / Plex for Roku / DV P7:** Fallback to HDR10
 
-[^K22]: \- Plex LG Video Settings Force Direct Play Enabled if disabled Transcodes (TrueHD 7.1 =&gt; EAC3 7.1)
+[^E23]: **Roku Ultra 4640x / Plex for Roku / DV P8:** Fallback to HDR10
 
-[^L22]: \- Transcodes (DCA 7.1 =&gt; AAC 5.1)<br>- Plex LG Video Settings Force Direct Play Disabled else no audio
+[^G23]: **Roku Ultra 4640x / Plex for Roku / HDR10+:** Didn't get a test result for this HDR Format, but considering that it supports HDR10, it will fallback to HDR10. If it supports HDR10+ I don't know till someone is able to provide this info.
 
-[^M22]: \- Plex LG Video Settings Force Direct Play Enabled if disabled Transcodes to AAC Stereo
+[^H23]: **Roku Ultra 4640x / Plex for Roku / TrueHD ATMOS:** Audio is transcoded to E-AC3/DD+
 
-[^O22]: \- Transcodes (DCA 5.1 =&gt; AAC 5.1)<br>- Plex LG Video Settings Force Direct Play Disabled else no audio
+[^K23]: **Roku Ultra 4640x / Plex for Roku / TrueHD:** Audio is transcoded to E-AC3/DD+
 
-[^A23]: Test Result Provided by: BeyondBroke<br>Test Result: <https://discord.com/channels/492590071455940612/1231867264010289163>
+[^L23]: **Roku Ultra 4640x / Plex for Roku / DTS-HD MA:** Audio is transcoded to AC3/DD
 
-[^D23]: Fallback to HDR10
+[^G24]: **SHIELD Android TV (2015) / Plex for Android (TV) / HDR10+:** Will fallback to HDR10
 
-[^E23]: Fallback to HDR10
+[^G25]: **SHIELD Android TV (2017) / Plex for Android (TV) / HDR10+:** Will fallback to HDR10
 
-[^G23]: Didn't get a test result for this HDR Format, but considering that it supports HDR10, it will fallback to HDR10. If it supports HDR10+ I don't know till someone is able to provide this info.
+[^A26]: **SHIELD Android TV (2019) (Pro) / Plex for Android (TV):** Test results provided by: TRaSH and several others<br>Date of Test: April 2024
 
-[^H23]: Audio is transcoded to E-AC3/DD+
+[^D26]: **SHIELD Android TV (2019) (Pro) / Plex for Android (TV) / DV P7:** It should play Profile 7 releases without issues.<br>But:<br>FEL/MEL  will be played as single layer. <br>MEL means, the EL is just empty, so Profile 7 BL+MEL+RPU is totally identical to Profile 8 BL+RPU
 
-[^K23]: Audio is transcoded to E-AC3/DD+
+[^G26]: **SHIELD Android TV (2019) (Pro) / Plex for Android (TV) / HDR10+:** Will fallback to HDR10
 
-[^L23]: Audio is transcoded to AC3/DD
+[^A27]: **SHIELD Android TV (2019) (Pro) / PlexKodiConnect:** Test results provided by: Jimbo<br>Test Results: <https://discord.com/channels/492590071455940612/1226612112730882100><br>Date of Test: April 2024
 
-[^G24]: Will fallback to HDR10
+[^G27]: **SHIELD Android TV (2019) (Pro) / PlexKodiConnect / HDR10+:** Will fallback to HDR10
 
-[^G25]: Will fallback to HDR10
+[^A28]: **Ugoos AM6B+ / Kodi (PM4K):** Supports Dolby Vision including FEL and 3D on CoreELEC -ng. They can decode 24fps VC-1 content using a software decoding. Somewhat faster than S905X4-J devices, but more expensive and lack hardware support for AV1. CoreELEC can be installed on the emmc and HS400 enabled which greatly reduces boot time and speeds up which greatly reduces boot time and speeds up the interface making it feel significantly faster than the S905X4.<br><br>If you want the best media box to only run CoreELEC, then the Ugoos AM6b+ is the best box with its faster processor and the ability to install COREelec to the emmc with HS400, but it runs an older version of Android and sacrifices support for certified apps including Netflix and AV1. However, only the Ugoos AM6b+ can fully replace a disc-based player.
 
-[^A26]: Test results provided by: TRaSH and several others<br>Date of Test: April 2024
+[^D28]: **Ugoos AM6B+ / Kodi (PM4K) / DV P7:** The AM6B+ can play both FEL and MEL DV P7 as well Single Track and Dual Track
 
-[^D26]: It should play Profile 7 releases without issues.<br>But:<br>FEL/MEL  will be played as single layer. <br>MEL means, the EL is just empty, so Profile 7 BL+MEL+RPU is totally identical to Profile 8 BL+RPU
+[^A29]: **Zidoo/Z9X PRO / plex2zidoo (PM4K):** Test results provided by: Chris.dc<br>Date of Test: April 2024<br>Test Result Provided by: ANIMATEK<br>Test Result: <https://discord.com/channels/492590071455940612/1228243671200043018><br>Date of Test: April 2024
 
-[^G26]: Will fallback to HDR10
+[^H29]: **Zidoo/Z9X PRO / plex2zidoo (PM4K) / TrueHD ATMOS:** There are special consideration, where the audio setup will modify the EDID profile that gets send from the TV to the Zidoo, cutting some framerate/resolution combinations. In some cases this lead to a frame or two skipping every now and then, because the framerate of the video didn't match the TV.<br>See this thread on how to get the best EDID for your setup (even if this is not an issue for you, as there are other benefits):  <https://forum.zidoo.tv/index.php?threads/edid-thread-rtd1619bpd-players.96829/>
 
-[^A27]: Test results provided by: Jimbo<br>Test Results: <https://discord.com/channels/492590071455940612/1226612112730882100><br>Date of Test: April 2024
+[^I29]: **Zidoo/Z9X PRO / plex2zidoo (PM4K) / DTS X:** There are special consideration, where the audio setup will modify the EDID profile that gets send from the TV to the Zidoo, cutting some framerate/resolution combinations. In some cases this lead to a frame or two skipping every now and then, because the framerate of the video didn't match the TV.<br>See this thread on how to get the best EDID for your setup (even if this is not an issue for you, as there are other benefits):  <https://forum.zidoo.tv/index.php?threads/edid-thread-rtd1619bpd-players.96829/>
 
-[^G27]: Will fallback to HDR10
+[^K29]: **Zidoo/Z9X PRO / plex2zidoo (PM4K) / TrueHD:** There are special consideration, where the audio setup will modify the EDID profile that gets send from the TV to the Zidoo, cutting some framerate/resolution combinations. In some cases this lead to a frame or two skipping every now and then, because the framerate of the video didn't match the TV.<br>See this thread on how to get the best EDID for your setup (even if this is not an issue for you, as there are other benefits):  <https://forum.zidoo.tv/index.php?threads/edid-thread-rtd1619bpd-players.96829/>
 
-[^A28]: Supports Dolby Vision including FEL and 3D on CoreELEC -ng. They can decode 24fps VC-1 content using a software decoding. Somewhat faster than S905X4-J devices, but more expensive and lack hardware support for AV1. CoreELEC can be installed on the emmc and HS400 enabled which greatly reduces boot time and speeds up which greatly reduces boot time and speeds up the interface making it feel significantly faster than the S905X4.<br><br>If you want the best media box to only run CoreELEC, then the Ugoos AM6b+ is the best box with its faster processor and the ability to install COREelec to the emmc with HS400, but it runs an older version of Android and sacrifices support for certified apps including Netflix and AV1. However, only the Ugoos AM6b+ can fully replace a disc-based player.
-
-[^D28]: The AM6B+ can play both FEL and MEL DV P7 as well Single Track and Dual Track
-
-[^A29]: Test results provided by: Chris.dc<br>Date of Test: April 2024<br>Test Result Provided by: ANIMATEK<br>Test Result: <https://discord.com/channels/492590071455940612/1228243671200043018><br>Date of Test: April 2024
-
-[^H29]: There are special consideration, where the audio setup will modify the EDID profile that gets send from the TV to the Zidoo, cutting some framerate/resolution combinations. In some cases this lead to a frame or two skipping every now and then, because the framerate of the video didn't match the TV.<br>See this thread on how to get the best EDID for your setup (even if this is not an issue for you, as there are other benefits):  <https://forum.zidoo.tv/index.php?threads/edid-thread-rtd1619bpd-players.96829/>
-
-[^I29]: There are special consideration, where the audio setup will modify the EDID profile that gets send from the TV to the Zidoo, cutting some framerate/resolution combinations. In some cases this lead to a frame or two skipping every now and then, because the framerate of the video didn't match the TV.<br>See this thread on how to get the best EDID for your setup (even if this is not an issue for you, as there are other benefits):  <https://forum.zidoo.tv/index.php?threads/edid-thread-rtd1619bpd-players.96829/>
-
-[^K29]: There are special consideration, where the audio setup will modify the EDID profile that gets send from the TV to the Zidoo, cutting some framerate/resolution combinations. In some cases this lead to a frame or two skipping every now and then, because the framerate of the video didn't match the TV.<br>See this thread on how to get the best EDID for your setup (even if this is not an issue for you, as there are other benefits):  <https://forum.zidoo.tv/index.php?threads/edid-thread-rtd1619bpd-players.96829/>
-
-[^L29]: There are special consideration, where the audio setup will modify the EDID profile that gets send from the TV to the Zidoo, cutting some framerate/resolution combinations. In some cases this lead to a frame or two skipping every now and then, because the framerate of the video didn't match the TV.<br>See this thread on how to get the best EDID for your setup (even if this is not an issue for you, as there are other benefits):  <https://forum.zidoo.tv/index.php?threads/edid-thread-rtd1619bpd-players.96829/>
+[^L29]: **Zidoo/Z9X PRO / plex2zidoo (PM4K) / DTS-HD MA:** There are special consideration, where the audio setup will modify the EDID profile that gets send from the TV to the Zidoo, cutting some framerate/resolution combinations. In some cases this lead to a frame or two skipping every now and then, because the framerate of the video didn't match the TV.<br>See this thread on how to get the best EDID for your setup (even if this is not an issue for you, as there are other benefits):  <https://forum.zidoo.tv/index.php?threads/edid-thread-rtd1619bpd-players.96829/>
