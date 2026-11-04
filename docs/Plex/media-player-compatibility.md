@@ -1,5 +1,6 @@
 # Media player compatibility
 
+{! include-markdown "./what-does-my-media-player-support.md" start="<!-- player-guide-overview:start -->" end="<!-- player-guide-overview:end -->" !}
 Community-tested results imported from `What does my Media Player Support.xlsx`. Values and cell notes are preserved from the workbook; they are not guarantees for every firmware version or setup. Read the linked notes before choosing a player.
 
 This sheet will only covers Player/Product that can run the Plex client direct/in-direct (JF/Emby isn't covered yet in this sheet because of the lack of proper tautulli app, and feedback/info from users)
@@ -87,6 +88,8 @@ DV Profile 8<br>This is what comes with (Hybrid) WEB-DL (HULU), Hybrid UHD Remux
 ### HDR10+ { #hdr10-plus }
 
 HDR10+ content backward compatible with non-HDR10+ TVs/Devices. HDR10+ metadata is ignored by devices that do not support the format and video is played back in HDR10.
+
+{! include-markdown "./what-does-my-media-player-support.md" start="<!-- player-guide-next-steps:start -->" !}
 
 <!-- Imported from Sheet1; workbook SHA-256: 51a5c35aca4f9b04c50356811aca03ce7241ad5b479b816b980e8b06a4ee215e. -->
 

@@ -1,5 +1,6 @@
 # What does my Media Player Support
 
+<!-- player-guide-overview:start -->
 We've created a [compatibility table](media-player-compatibility.md) with several tested Media Player devices with info that our community has provided.
 
 We hope this table will be helpful for everyone looking for a reliable Media Player device.
@@ -67,7 +68,11 @@ Overall, audio passthrough is the ideal way to send audio from your media server
 
 !!! info "A lot of results have a note added that provides extra information, such as fallback HDR or audio formats, as well as other information that we've gathered from several sources."
 
+<!-- player-guide-overview:end -->
+
 ---
+
+<!-- player-guide-next-steps:start -->
 
 ## What should I do next with this info
 
