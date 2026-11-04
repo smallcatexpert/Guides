@@ -54,22 +54,7 @@ HDR Formats[^C10] (DV P5 through HDR10+). Audio Passthrough[^H10] (TrueHD ATMOS 
 | SHIELD Android TV (2019) (Pro)[^A27] | PlexKodiConnect | Y | Y | Y | Y | N[^G27] | Y | Y | Y | Y | Y | Y | Y | Y | Y | Y |
 | Ugoos AM6B+[^A28] | Kodi (PM4K) | Y | Y[^D28] | Y | Y | Y | Y | Y | Y | Y | Y | Y | Y | Y | Y | Y |
 | Zidoo/Z9X PRO[^A29] | plex2zidoo (PM4K) | Y | Y | Y | Y | Y | Y[^H29] | Y[^I29] | Y | Y[^K29] | Y[^L29] | Y | Y | Y | Y | Y |
-
-## Template row
-
-The workbook includes this untested placeholder. It is retained separately from the tested devices.
-
-| Player | Product | DV P5 | DV P7 | DV P8 | HDR10 | HDR10+ | TrueHD ATMOS | DTS X | DD+ ATMOS | TrueHD | DTS-HD MA | FLAC/PCM | DD+/E-AC3 | DTS | AAC | DD/AC3 |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | PLAYER | PRODUCT | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? |
-
-## Updating results
-
-Edit this page using the pencil icon or GitHub’s file editor. Each table line is one player/product combination, with values in the same order as the headings. Keep `Y`, `N`, `?`, and blank cells distinct. Copy a row to add a device, then update its name, product, and results.
-
-Keep qualifications next to their results using a footnote reference such as `N[^device-dv]` and a matching definition such as `[^device-dv]: Falls back to HDR10.` below the table. Existing footnote names refer to the original workbook cell for migration traceability; new notes can use descriptive names. Include test dates and evidence links where available, and keep contradictory or uncertain findings explicit. Preview the page before submitting a pull request.
-
-This Markdown page is the editable source of truth. No spreadsheet export or regeneration is needed.
 
 <!-- Imported from Sheet1; workbook SHA-256: 51a5c35aca4f9b04c50356811aca03ce7241ad5b479b816b980e8b06a4ee215e. -->
 
