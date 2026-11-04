@@ -54,6 +54,7 @@ Green `Y` means yes, red `N` means no, and gray `?` means no test results. Color
 | SHIELD Android TV (2019) (Pro)[^A27] | PlexKodiConnect | Y | Y | Y | Y | N[^G27] | Y | Y | Y | Y | Y | Y | Y | Y | Y | Y |
 | Ugoos AM6B+[^A28] | Kodi (PM4K) | Y | Y[^D28] | Y | Y | Y | Y | Y | Y | Y | Y | Y | Y | Y | Y | Y |
 | Zidoo/Z9X PRO[^A29] | plex2zidoo (PM4K) | Y | Y | Y | Y | Y | Y[^H29] | Y[^I29] | Y | Y[^K29] | Y[^L29] | Y | Y | Y | Y | Y |
+| PLAYER | PRODUCT | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? |
 
 ## Format notes
 
@@ -86,24 +87,6 @@ DV Profile 8<br>This is what comes with (Hybrid) WEB-DL (HULU), Hybrid UHD Remux
 ### HDR10+ { #hdr10-plus }
 
 HDR10+ content backward compatible with non-HDR10+ TVs/Devices. HDR10+ metadata is ignored by devices that do not support the format and video is played back in HDR10.
-
-## Template row
-
-The workbook includes this untested placeholder. It is retained separately from the tested devices.
-
-| Player | Product | DV P5 | DV P7 | DV P8 | HDR10 | HDR10+ | TrueHD ATMOS | DTS X | DD+ ATMOS | TrueHD | DTS-HD MA | FLAC/PCM | DD+/E-AC3 | DTS | AAC | DD/AC3 |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| PLAYER | PRODUCT | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? | ? |
-
-## Updating results
-
-Edit this page using the pencil icon or GitHub’s file editor. Each table line is one player/product combination, with values in the same order as the headings. Keep `Y`, `N`, `?`, and blank cells distinct. Copy a row to add a device, then update its name, product, and results.
-
-Colors are applied automatically from `Y`, `N`, and `?`; no color markup is needed when editing a row.
-
-Keep qualifications next to their results using a footnote reference such as `N[^device-dv]` and a matching definition such as `[^device-dv]: Falls back to HDR10.` below the table. Start each cell note with its player, product, and format so its context remains clear when read below the table. Format-wide explanations live in [Format notes](#format-notes); keep the heading links in sync if a format is added or renamed. Existing footnote names refer to the original workbook cell for migration traceability; new notes can use descriptive names. Include test dates and evidence links where available, and keep contradictory or uncertain findings explicit. Preview the page before submitting a pull request.
-
-This Markdown page is the editable source of truth. No spreadsheet export or regeneration is needed.
 
 <!-- Imported from Sheet1; workbook SHA-256: 51a5c35aca4f9b04c50356811aca03ce7241ad5b479b816b980e8b06a4ee215e. -->
 
